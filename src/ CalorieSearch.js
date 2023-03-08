@@ -7,10 +7,19 @@ export function CalorieSearch() {
 
   const handleSearch = () => {
     axios
-      .get(`https://api.spoonacular.com/food/products/search?query=${foodName}&apiKey=d7c35df411774b8abdc4c5197ab01533`)
+      .get(`https://api.spoonacular.com/food/products/upc/${foodName}?apiKey=d7c35df411774b8abdc4c5197ab01533`)
       .then((response) => {
-        const product = response.data.products[0];
-        setCalories(`${console.log(typeof product.calories)} calories`);
+        const products = response.data.products;
+        if (products.length > 0) {
+          const product = products[0];
+          if (product.calories) {
+            setCalories(`${product.calories} calories`);
+          } else {
+            setCalories('Calorie information not available');
+          }
+        } else {
+          setCalories('Product not found');
+        }
       })
       .catch((error) => {
         console.log(error);
