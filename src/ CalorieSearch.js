@@ -2,24 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 export function CalorieSearch() {
-  const [foodName, setFoodName] = useState('');
-  const [calories, setCalories] = useState('');
+  const [calorieCount, setCalorieCount] = useState('');
+  const [recipes, setRecipes] = useState([]);
 
   const handleSearch = () => {
     axios
-      .get(`https://api.spoonacular.com/food/products/upc/${foodName}?apiKey=d7c35df411774b8abdc4c5197ab01533`)
+      .get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=d7c35df411774b8abdc4c5197ab01533&maxCalories=${calorieCount}`)
       .then((response) => {
-        const products = response.data.products;
-        if (products.length > 0) {
-          const product = products[0];
-          if (product.calories) {
-            setCalories(`${product.calories} calories`);
-          } else {
-            setCalories('Calorie information not available');
-          }
-        } else {
-          setCalories('Product not found');
-        }
+        const recipeData = response.data.results;
+        setRecipes(recipeData);
       })
       .catch((error) => {
         console.log(error);
@@ -28,9 +19,15 @@ export function CalorieSearch() {
 
   return (
     <div>
-      <input type="text" value={foodName} onChange={(event) => setFoodName(event.target.value)} />
+      <input type="text" value={calorieCount} onChange={(event) => setCalorieCount(event.target.value)} />
       <button onClick={handleSearch}>Search</button>
-      <p>{calories}</p>
+      {recipes.map((recipe) => (
+        <div key={recipe.id}>
+          <h3>{recipe.title}</h3>
+          <p>{calorieCount} calories</p>
+          <img src={`https://spoonacular.com/recipeImages/${recipe.image}`} alt={recipe.title} />
+        </div>
+      ))}
     </div>
   );
 }
