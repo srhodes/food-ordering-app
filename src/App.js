@@ -1,6 +1,6 @@
 import React from 'react';
 import { IngredientSearch } from './components/IngredientSearch';
-import { CalorieSearch } from './ CalorieSearch';
+import { CalorieSearch } from './components/ CalorieSearch';
 
 function App() {
   return (
