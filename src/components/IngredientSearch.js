@@ -26,9 +26,10 @@ export function IngredientSearch() {
       </form>
       <ul>
         {results.map((result) => (
+
         <div>
-          <li key={result.id}>{result.name}<img src={result.image}/></li>
-          <div key={result.name}>
+          <li key={result.id}>{result.name}<img src={`https://spoonacular.com/recipeImages/${result.id}-556x370.jpg`}/></li>
+          <div key={result.id}>
             <p>{result.description}</p>
           </div>
           
