@@ -27,11 +27,12 @@ export function IngredientSearch() {
       <ul>
         {results.map((result) => (
 
-        <div>
-          <li key={result.id}>{result.name}<img src={`https://spoonacular.com/recipeImages/${result.id}-556x370.jpg`}/></li>
-          <div key={result.id}>
-            <p>{result.description}</p>
-          </div>
+        <div key={result.id}>
+          {console.log(result)}
+          <li >{result.name}<img src={`https://spoonacular.com/recipeImages/${result.id}-556x370.jpg`} className="card-img-top"/>{result.description}</li>
+          {/* <div key={result.id}> */}
+          <li></li>
+          {/* </div> */}
           
         </div>
         ))}

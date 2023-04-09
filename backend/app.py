@@ -2,13 +2,19 @@ from flask import Flask, jsonify, request
 from models import db, connect_db, User
 from secret import API_SECRET_KEY
 import requests
-
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField
 
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/food_ordering_app'
 
 connect_db(app)
+
+class loginForm(FlaskForm):
+    username = StringField("Username")
+    password = PasswordField("Password")
+
 
 @app.route('/api/ingredients')
 def get_ingredients():

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { CardBody, Card, CardImg } from 'reactstrap';
+import { CardBody, Card, CardImg, CardTitle, CardText } from 'reactstrap';
 
 
 export function CalorieSearch() {
@@ -27,17 +27,17 @@ export function CalorieSearch() {
       recipes.map(
         (recipe) => 
         (
-        // <Card style="width: 18rem;">
-        //   <CardBody>
-            <div key={recipe.id}>
+        <Card key={recipe.id}>
+           <CardBody>
+            <div >
               <h3>{recipe.title}</h3>
-              <p>{calorieCount} calories</p>
+              <CardText>{calorieCount} calories</CardText>
               <img src={`https://spoonacular.com/recipeImages/${recipe.id}-556x370.jpg`} className="card-img-top" alt={recipe.title} />
               
                 
               </div>
-        //     </CardBody>
-        // </Card>
+           </CardBody>
+           </Card>
       )
       )
       }
