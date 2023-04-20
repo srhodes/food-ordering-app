@@ -23,7 +23,7 @@ def get_ingredients():
     return jsonify(response.json())
 
 # Implement the authentication route
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['GET','POST'])
 def login():
     email = request.json['email']
     password = request.json['password']
