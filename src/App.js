@@ -22,16 +22,25 @@ function App() {
     )
   }, [])
 
+  let method = ''
   useEffect(() => {
-    fetch("/login").then(
-      res => res.json()
-    ).then(
-      user => {
-        setData(user)
-        console.log(user)
-      }
-    )
-  }, [])
+    const requestOptions = {
+      method: method,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    };
+    
+    if (method === 'POST') {
+      fetch('/login', requestOptions)
+        .then(response => response.json())
+        .then(data => console.log(data));
+    } else if (method === 'GET') {
+      fetch('/login')
+        .then(response => response.json())
+        .then(data => console.log(data));
+    }
+  }, []);
+  
   return (
     <div>
       <Routes>
