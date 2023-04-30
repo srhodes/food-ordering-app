@@ -6,6 +6,7 @@ import { IngredientSearch } from './components/IngredientSearch';
 // import { CalorieSearch } from './components/CalorieSearch';
 import { Card } from 'reactstrap';
 import AppBarComponent from './components/AppBarComponent';
+import CarouselComponent from './components/CarouselComponent';
 
 function App() {
   
@@ -45,7 +46,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<h1> <AppBarComponent/> Food Ordering App</h1>}/>
+        <Route path='/' element={<h1> <AppBarComponent/> Food Ordering App <CarouselComponent/></h1>}/>
         <Route path='/ingredient' element={ <h1> <AppBarComponent/> Ingredient Search <hr/> <IngredientSearch /> </h1>}/>
         {/* <Route path='/calorie' element={<h1> <AppBarComponent/> Calorie Search <hr/> <CalorieSearch /></h1>}/>   */}
         <Route path='/login' element={ <h1> <AppBarComponent/> Login</h1>}/>
