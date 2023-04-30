@@ -34,10 +34,10 @@ export default class Example extends React.Component {
                 <NavLink href="http://localhost:3000/ingredient">IngredientSearch</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="http://localhost:3000/login">Login</NavLink>
+                <NavLink href="http://localhost:5000/login">Login</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="http://localhost:3000/register">Sign Up</NavLink>
+                <NavLink href="http://localhost:5000/register">Sign Up</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

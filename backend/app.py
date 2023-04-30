@@ -4,6 +4,8 @@ from secret import API_SECRET_KEY
 import requests
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
+from flask_wtf.csrf import generate_csrf
+from wtforms.validators import DataRequired
 
 app = Flask(__name__)
 
@@ -15,6 +17,7 @@ class loginForm(FlaskForm):
     username = StringField("Username")
     password = PasswordField("Password")
     submit = SubmitField("Login")
+    csrf_token = StringField(validators=[DataRequired()], default=generate_csrf())
 
 class RegisterForm(FlaskForm):
     username = StringField("Username")
@@ -48,7 +51,7 @@ def login():
         return jsonify({'token': token.decode('UTF-8')})
 
     form = loginForm()
-    return render_template('login.html', form=form)
+    return render_template('login.html', form=form, csrf_token=form.csrf_token)
 
 # Implement the registration route
 @app.route('/register', methods=['GET', 'POST'])
