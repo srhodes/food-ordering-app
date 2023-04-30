@@ -39,19 +39,20 @@ def get_ingredients():
 # Implement the authentication route
 @app.route('/login', methods=['GET','POST'])
 def login():
-    if request.method == 'POST':
-        email = request.json['email']
-        password = request.json['password']
-        user = User.query.filter_by(email=email).first()
+    with app.app_context():
+        if request.method == 'POST':
+            email = request.json['email']
+            password = request.json['password']
+            user = User.query.filter_by(email=email).first()
 
-        if not user or not bcrypt.check_password_hash(user.password, password):
-            return jsonify({'message': 'Invalid credentials'}), 401
+            if not user or not bcrypt.check_password_hash(user.password, password):
+                return jsonify({'message': 'Invalid credentials'}), 401
 
-        token = jwt.encode({'user_id': user.id, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)}, app.config['SECRET_KEY'])
-        return jsonify({'token': token.decode('UTF-8')})
+            token = jwt.encode({'user_id': user.id, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)}, app.config['SECRET_KEY'])
+            return jsonify({'token': token.decode('UTF-8')})
 
-    form = loginForm()
-    return render_template('login.html', form=form, csrf_token=form.csrf_token)
+        form = loginForm()
+        return render_template('login.html', form=form, csrf_token=form.csrf_token)
 
 # Implement the registration route
 @app.route('/register', methods=['GET', 'POST'])
