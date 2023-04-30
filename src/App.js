@@ -7,6 +7,8 @@ import { IngredientSearch } from './components/IngredientSearch';
 import { Card } from 'reactstrap';
 import AppBarComponent from './components/AppBarComponent';
 import CarouselComponent from './components/CarouselComponent';
+// import Jumbotitle from './components/Jumbotitle';
+import Breadtitle from './components/BreadTitle';
 
 function App() {
   
@@ -46,11 +48,11 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<h1> <AppBarComponent/> Food Searching App <CarouselComponent/></h1>}/>
-        <Route path='/ingredient' element={ <h1> <AppBarComponent/> Ingredient Search <hr/> <IngredientSearch /> </h1>}/>
-        {/* <Route path='/calorie' element={<h1> <AppBarComponent/> Calorie Search <hr/> <CalorieSearch /></h1>}/>   */}
-        <Route path='/login' element={ <h1> <AppBarComponent/> Login</h1>}/>
-        <Route path='/register' element={ <h1> <AppBarComponent/> Register</h1>}/>
+        <Route path='/' element={<h1> <AppBarComponent/> Food Searching App <hr/><Breadtitle/><CarouselComponent/></h1>}/>
+        <Route path='/ingredient' element={ <h1> <AppBarComponent/> Ingredient Search <hr/> <Breadtitle/> <IngredientSearch /> </h1>}/>
+        {/* <Route path='/calorie' element={<h1> <AppBarComponent/> Calorie Search <hr/> <Breadtitle/> <CalorieSearch /></h1>}/>   */}
+        <Route path='/login' element={ <h1> <AppBarComponent/> Login <hr/> </h1>}/>
+        <Route path='/register' element={ <h1> <AppBarComponent/> Register <hr/></h1>}/>
         <Route path='/data' element={console.log("Here data ", user)}/>
       </Routes>
     </div>
