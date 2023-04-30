@@ -16,6 +16,8 @@ export function IngredientSearch() {
   
   return (
     <div>
+  
+      
       <form onSubmit={handleSearch}>
         <input
           type="text"

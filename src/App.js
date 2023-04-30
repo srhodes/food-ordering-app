@@ -46,10 +46,10 @@ function App() {
     <div>
       <Routes>
         <Route path='/' element={<h1> <AppBarComponent/> Food Ordering App</h1>}/>
-        <Route path='/ingredient' element={ <h1>Ingredient Search <hr/> <IngredientSearch /> </h1>}/>
-        {/* <Route path='/calorie' element={<h1> Calorie Search <hr/> <CalorieSearch /></h1>}/>   */}
-        <Route path='/login' element={ <h1>Login</h1>}/>
-        <Route path='/register' element={ <h1>Register</h1>}/>
+        <Route path='/ingredient' element={ <h1> <AppBarComponent/> Ingredient Search <hr/> <IngredientSearch /> </h1>}/>
+        {/* <Route path='/calorie' element={<h1> <AppBarComponent/> Calorie Search <hr/> <CalorieSearch /></h1>}/>   */}
+        <Route path='/login' element={ <h1> <AppBarComponent/> Login</h1>}/>
+        <Route path='/register' element={ <h1> <AppBarComponent/> Register</h1>}/>
         <Route path='/data' element={console.log("Here data ", user)}/>
       </Routes>
     </div>
