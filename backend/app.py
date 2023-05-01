@@ -35,6 +35,10 @@ def get_ingredients():
     query = request.args.get('query')
     response = requests.get(f'https://api.spoonacular.com/food/ingredients/search?apiKey={API_SECRET_KEY}&query={query}')
     return jsonify(response.json())
+    
+@app.route('/dashboard', method=['GET'])
+def dashboard():
+    return render_template('dashboard.html')
 
 # Implement the authentication route
 @app.route('/login', methods=['GET','POST'])

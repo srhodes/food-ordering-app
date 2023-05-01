@@ -15,16 +15,16 @@ function App() {
   const [data, setData] = useState([{}])
   const [user, setUser] = useState([{}])
 
-  useEffect(() => {
-    fetch("/api/ingredients").then(
-      res => res.json()
-    ).then(
-      data => {
-        setData(data)
-        console.log(data)
-      }
-    )
-  }, [])
+  // useEffect(() => {
+  //   fetch("/api/ingredients").then(
+  //     res => res.json()
+  //   ).then(
+  //     data => {
+  //       setData(data)
+  //       console.log(data)
+  //     }
+  //   )
+  // }, [])
 
   let method = 'GET'
   useEffect(() => {
@@ -35,11 +35,11 @@ function App() {
     };
     
     if (method === 'POST') {
-      fetch('/register', requestOptions)
+      fetch('http://localhost:5000/login', requestOptions)
         .then(response => response.json())
         .then(user => console.log(user));
     } else if (method === 'GET') {
-      fetch('/register')
+      fetch('http://localhost:5000/login')
         .then(response => response.json())
         .then(user => console.log(user));
     }
