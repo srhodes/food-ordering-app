@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Container, Row, Col } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 export function IngredientSearch() {
   const [query, setQuery] = useState('');
@@ -31,9 +34,20 @@ export function IngredientSearch() {
 
         <div key={result.id}>
           {console.log(result)}
-          <li >{result.name}<img src={`https://spoonacular.com/recipeImages/${result.id}-556x370.jpg`} className="card-img-top"/>{result.description}</li>
+
+          <div class="card" style={{width: '18rem', float: 'left'}}>
+            <img class="card-img-top" src={`https://spoonacular.com/recipeImages/${result.id}-556x370.jpg`} alt="Card image cap"/>
+            <div class="card-body">
+            <h5 class="card-title">{result.name}</h5>
+            <p class="card-text">{result.description}</p>
+            <a href="#" class="btn btn-primary">Add</a>
+          </div>
+          
+        </div>
+        
+          {/* <li >{result.name}<img style = {{width: 400, height: 400}} src={`https://spoonacular.com/recipeImages/${result.id}-556x370.jpg`} className="card-img-top"/>{result.description}</li> */}
           {/* <div key={result.id}> */}
-          <li></li>
+          {/* <li></li> */}
           {/* </div> */}
           
         </div>

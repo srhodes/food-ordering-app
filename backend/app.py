@@ -6,10 +6,16 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from flask_wtf.csrf import generate_csrf
 from wtforms.validators import DataRequired
+from flask_wtf import CSRFProtect
 
 app = Flask(__name__)
 
+app.app_context().push()
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/food_ordering_app'
+app.config['SECRET_KEY'] = API_SECRET_KEY
+
+csrf = CSRFProtect(app)
 
 connect_db(app)
 
@@ -17,7 +23,7 @@ class loginForm(FlaskForm):
     username = StringField("Username")
     password = PasswordField("Password")
     submit = SubmitField("Login")
-    csrf_token = StringField(validators=[DataRequired()], default=generate_csrf())
+    # csrf_token = StringField(validators=[DataRequired()], default=generate_csrf())
 
 class RegisterForm(FlaskForm):
     username = StringField("Username")

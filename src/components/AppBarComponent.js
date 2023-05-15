@@ -20,7 +20,7 @@ export default class Example extends React.Component {
     return (
       <div>
         <Navbar color="faded" light>
-          <NavbarBrand href="/" className="mr-auto">Food Logo</NavbarBrand>
+          <NavbarBrand href="/" className="mr-auto"><img src='https://image.similarpng.com/very-thumbnail/2021/09/Good-food-logo-design-on-transparent-background-PNG.png' style={{width: 100, height: 100}}/></NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav navbar>
