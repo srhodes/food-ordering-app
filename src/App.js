@@ -48,7 +48,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<h1> Hello <AppBarComponent/> <div className='anim'>Food Searching App </div><hr/><Breadtitle/><Container><CarouselComponent/></Container><aside className='aside'> <p>Aside paragraph</p></aside></h1>}/>
+        <Route path='/' element={<h1><AppBarComponent/> <div className='anim'>Food Searching App </div><hr/><Breadtitle/><Container><CarouselComponent/></Container></h1>}/>
         <Route path='/ingredient' element={ <h1> <AppBarComponent/> Ingredient Search <hr/> <Breadtitle/> <IngredientSearch /> </h1>}/>
         {/* <Route path='/calorie' element={<h1> <AppBarComponent/> Calorie Search <hr/> <Breadtitle/> <CalorieSearch /></h1>}/>   */}
         <Route path='/login' element={ <h1> <AppBarComponent/> Login <hr/> </h1>}/>
